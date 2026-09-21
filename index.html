@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="SuriJava Flavours – Surinaamse en Javaanse catering voor feesten, evenementen en catering op locatie.">
+  <title>SuriJava Flavours | Surinaamse & Javaanse Catering</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --green:#0d3b2e;
+      --green2:#164f3b;
+      --cream:#f8f0df;
+      --gold:#c99a35;
+      --red:#a72e27;
+      --brown:#4b2b1f;
+      --ink:#1d251f;
+      --white:#fffdf8;
+      --shadow:0 18px 45px rgba(31,38,30,.12);
+      --radius:22px;
+    }
+    *{box-sizing:border-box;scroll-behavior:smooth}
+    body{margin:0;font-family:"DM Sans",Arial,sans-serif;color:var(--ink);background:var(--cream);line-height:1.65}
+    a{color:inherit;text-decoration:none}
+    .topbar{background:var(--green);color:#fff;padding:9px 20px;text-align:center;font-size:.9rem}
+    header{position:sticky;top:0;z-index:20;background:rgba(248,240,223,.96);backdrop-filter:blur(12px);border-bottom:1px solid rgba(13,59,46,.12)}
+    nav{max-width:1180px;margin:auto;display:flex;align-items:center;justify-content:space-between;padding:14px 20px}
+    .brand{display:flex;align-items:center;gap:12px;font-family:"Playfair Display",serif;font-size:1.5rem;color:var(--green);font-weight:700}
+    .brand-mark{width:45px;height:45px;border-radius:50%;display:grid;place-items:center;background:var(--green);color:#fff;font-size:1.35rem;border:2px solid var(--gold)}
+    .links{display:flex;gap:24px;font-weight:600;font-size:.95rem}
+    .links a:hover{color:var(--red)}
+    .nav-cta,.btn{display:inline-flex;align-items:center;justify-content:center;padding:12px 19px;border-radius:999px;font-weight:700;border:0;cursor:pointer}
+    .nav-cta{background:var(--red);color:#fff}
+    .hero{min-height:76vh;display:grid;place-items:center;position:relative;overflow:hidden;background:
+      linear-gradient(90deg,rgba(13,59,46,.96),rgba(13,59,46,.72) 52%,rgba(13,59,46,.35)),
+      url("assets/braderie-menu-2026.jpeg") center/cover;
+    }
+    .hero-inner{width:min(1180px,100%);padding:90px 20px;color:#fff}
+    .eyebrow{display:inline-block;color:#ffe2a2;border:1px solid rgba(255,226,162,.65);padding:6px 13px;border-radius:999px;font-size:.85rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase}
+    h1,h2,h3{font-family:"Playfair Display",serif;line-height:1.12}
+    h1{font-size:clamp(3rem,7vw,6.4rem);max-width:850px;margin:20px 0 15px}
+    .hero p{font-size:1.2rem;max-width:670px;color:#f8f3e9}
+    .hero-buttons{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+    .btn-primary{background:var(--gold);color:#2a1c10}
+    .btn-light{background:#fff;color:var(--green)}
+    section{padding:85px 20px}
+    .container{max-width:1180px;margin:auto}
+    .section-head{max-width:720px;margin-bottom:42px}
+    .section-head .eyebrow{color:var(--red);border-color:rgba(167,46,39,.35)}
+    h2{font-size:clamp(2.1rem,4vw,3.6rem);margin:14px 0}
+    .lead{font-size:1.08rem;color:#5c625d}
+    .about{background:var(--white)}
+    .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:45px;align-items:center}
+    .story-card{padding:38px;background:var(--green);color:#fff;border-radius:var(--radius);box-shadow:var(--shadow);position:relative;overflow:hidden}
+    .story-card:after{content:"♡";position:absolute;right:22px;bottom:-30px;font-size:12rem;color:rgba(255,255,255,.06)}
+    .story-card h3{font-size:2rem;margin-top:0}
+    .highlights{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+    .highlight{padding:22px;border:1px solid #e3d9c3;border-radius:18px;background:#fff}
+    .icon{font-size:1.7rem}
+    .services{background:#efe4cc}
+    .service-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+    .service{background:#fff;padding:27px;border-radius:18px;box-shadow:0 8px 25px rgba(31,38,30,.07)}
+    .service h3{font-size:1.45rem;margin:12px 0 8px}
+    .menu-section{background:var(--white)}
+    .menu-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:28px;align-items:start}
+    .menu-list{display:grid;grid-template-columns:1fr 1fr;gap:0 24px;background:#fff;border:1px solid #e5dcc9;border-radius:var(--radius);padding:10px 24px}
+    .menu-item{display:flex;justify-content:space-between;gap:15px;padding:13px 0;border-bottom:1px dashed #d7c9ae}
+    .menu-item:nth-last-child(-n+2){border-bottom:0}
+    .price{font-weight:800;color:var(--red);white-space:nowrap}
+    .note{font-size:.9rem;color:#6a6a62;margin-top:16px}
+    .flyers{display:grid;gap:18px}
+    .flyer{background:#fff;border-radius:18px;padding:10px;box-shadow:var(--shadow)}
+    .flyer img{width:100%;display:block;border-radius:13px}
+    .gallery{background:var(--green);color:#fff}
+    .gallery .lead{color:#dbe8df}
+    .gallery-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+    .gallery-card{background:#fff;padding:10px;border-radius:18px}
+    .gallery-card img{width:100%;height:520px;object-fit:cover;border-radius:12px}
+    .quote{background:linear-gradient(135deg,#fffdf8,#eadbbd)}
+    .quote-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:45px;align-items:start}
+    .quote-box{background:#fff;padding:32px;border-radius:var(--radius);box-shadow:var(--shadow)}
+    form{display:grid;gap:15px}
+    .row{display:grid;grid-template-columns:1fr 1fr;gap:15px}
+    label{font-weight:700;font-size:.92rem}
+    input,select,textarea{width:100%;margin-top:6px;border:1px solid #d8ccb6;background:#fffdf8;border-radius:12px;padding:13px 14px;font:inherit}
+    textarea{min-height:120px;resize:vertical}
+    .submit{background:var(--green);color:#fff}
+    footer{background:#08281f;color:#dce9e1;padding:45px 20px}
+    .footer-grid{max-width:1180px;margin:auto;display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:35px}
+    footer h3{color:#fff;font-size:1.35rem}
+    .small{font-size:.9rem;color:#aec2b8}
+    .whatsapp{position:fixed;right:22px;bottom:22px;z-index:30;background:#25d366;color:#fff;width:60px;height:60px;border-radius:50%;display:grid;place-items:center;font-size:1.6rem;box-shadow:0 12px 30px rgba(0,0,0,.25)}
+    @media(max-width:900px){
+      .links{display:none}
+      .service-grid{grid-template-columns:1fr 1fr}
+      .about-grid,.menu-grid,.quote-grid{grid-template-columns:1fr}
+    }
+    @media(max-width:650px){
+      section{padding:60px 16px}
+      .hero-inner{padding:70px 16px}
+      h1{font-size:3.4rem}
+      .service-grid,.highlights,.menu-list,.gallery-grid,.row,.footer-grid{grid-template-columns:1fr}
+      .gallery-card img{height:auto}
+      .menu-item:nth-last-child(-n+2){border-bottom:1px dashed #d7c9ae}
+    }
+  </style>
+</head>
+<body>
+  <div class="topbar">🌺 Surinaamse smaak, Javaanse liefde • Catering & koken op locatie</div>
+
+  <header>
+    <nav>
+      <a class="brand" href="#home"><span class="brand-mark">SJ</span>SuriJava Flavours</a>
+      <div class="links">
+        <a href="#over-ons">Over ons</a>
+        <a href="#catering">Catering</a>
+        <a href="#menu">Menu</a>
+        <a href="#offerte">Offerte</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <a class="nav-cta" href="#offerte">Offerte aanvragen</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-inner">
+        <span class="eyebrow">SuriJava Flavours</span>
+        <h1>Surinaamse smaak, Javaanse liefde.</h1>
+        <p>Authentieke catering voor feesten, evenementen en bijzondere momenten. Van heerlijke gerechten tot koken en opscheppen op locatie: wij maken van jouw gelegenheid een smaakvolle herinnering.</p>
+        <div class="hero-buttons">
+          <a class="btn btn-primary" href="#offerte">🍽️ Vraag een offerte aan</a>
+          <a class="btn btn-light" href="#menu">Bekijk het menu</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="about" id="over-ons">
+      <div class="container about-grid">
+        <div>
+          <div class="section-head">
+            <span class="eyebrow">Over SuriJava Flavours</span>
+            <h2>Waar Surinaamse en Javaanse smaken samenkomen.</h2>
+          </div>
+          <p class="lead">Bij SuriJava Flavours draait het om lekker eten, gastvrijheid en een persoonlijke aanpak. We verzorgen catering voor kleine én grote gelegenheden en stemmen het menu af op jouw wensen.</p>
+          <p>Wil je dat het eten op locatie wordt klaargemaakt? Dat kan. Wil je dat wij de gasten opscheppen en het buffet verzorgen? Ook dat kunnen we regelen. Zo hoef jij tijdens je feest nergens naar om te kijken.</p>
+        </div>
+        <div class="story-card">
+          <h3>Van keuken naar jouw feest.</h3>
+          <p>Jij vertelt ons wat je viert, hoeveel gasten je verwacht en wat je lekker vindt. Wij denken mee over gerechten, hoeveelheden, presentatie en bediening.</p>
+          <p><strong>Persoonlijk • Vers • Smaakvol • Met liefde gemaakt</strong></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="services" id="catering">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Onze catering</span>
+          <h2>Meer dan alleen eten.</h2>
+          <p class="lead">Van een compleet buffet tot bediening op locatie. We kunnen de catering zo uitgebreid maken als jij wilt.</p>
+        </div>
+        <div class="service-grid">
+          <article class="service"><div class="icon">🍛</div><h3>Buffetcatering</h3><p>Een smaakvol buffet met jouw favoriete Surinaamse en Javaanse gerechten.</p></article>
+          <article class="service"><div class="icon">👩🏽‍🍳</div><h3>Koken op locatie</h3><p>Een deel van de gerechten of het volledige menu wordt op locatie bereid.</p></article>
+          <article class="service"><div class="icon">🍽️</div><h3>Opscheppen & bediening</h3><p>Wij scheppen voor je gasten op en kunnen het buffet tijdens het feest verzorgen.</p></article>
+          <article class="service"><div class="icon">🎉</div><h3>Catering op maat</h3><p>Voor verjaardagen, bruiloften, babyshowers, bedrijfsfeesten en evenementen.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="menu-section" id="menu">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Menu</span>
+          <h2>Onze gerechten</h2>
+          <p class="lead">Onderstaande prijzen zijn de huidige verkoopprijzen uit onze prijslijst. Voor grotere partijen en catering maken we graag een persoonlijke offerte.</p>
+        </div>
+        <div class="menu-grid">
+          <div>
+            <div class="menu-list">
+              <div class="menu-item"><span>Bamie</span><span class="price">€ 12 / € 15</span></div>
+              <div class="menu-item"><span>Nasie</span><span class="price">€ 12 / € 15</span></div>
+              <div class="menu-item"><span>Teloh zoutevis (bakkeljauw) of kip</span><span class="price">€ 7,50</span></div>
+              <div class="menu-item"><span>Saoto met ei</span><span class="price">€ 10</span></div>
+              <div class="menu-item"><span>Bakabana – 4 stuks</span><span class="price">€ 5</span></div>
+              <div class="menu-item"><span>Sate – 3 stuks</span><span class="price">€ 5</span></div>
+              <div class="menu-item"><span>Tahoe Lontong</span><span class="price">€ 10</span></div>
+              <div class="menu-item"><span>Berkat</span><span class="price">€ 25 / € 40</span></div>
+              <div class="menu-item"><span>Nasie Rames</span><span class="price">€ 17,50</span></div>
+              <div class="menu-item"><span>Pitjil</span><span class="price">€ 7</span></div>
+              <div class="menu-item"><span>Goedangan</span><span class="price">€ 7</span></div>
+              <div class="menu-item"><span>Goeleh</span><span class="price">€ 12,50</span></div>
+              <div class="menu-item"><span>Loempia – 3 stuks</span><span class="price">€ 5</span></div>
+              <div class="menu-item"><span>Surinaamse kroket – 3 stuks</span><span class="price">€ 5</span></div>
+              <div class="menu-item"><span>Risolles</span><span class="price">€ 2,50</span></div>
+              <div class="menu-item"><span>Roti kip</span><span class="price">€ 12,50</span></div>
+              <div class="menu-item"><span>Roti doks</span><span class="price">€ 17,50</span></div>
+              <div class="menu-item"><span>Roti vegetarisch / met ei</span><span class="price">€ 10</span></div>
+              <div class="menu-item"><span>Flensjes – 3 stuks</span><span class="price">€ 5</span></div>
+              <div class="menu-item"><span>Rijst kip met pom / pastei</span><span class="price">€ 17,50</span></div>
+            </div>
+            <p class="note">* Voor catering, grotere porties, bediening en maatwerk gelden persoonlijke afspraken. Vraag vrijblijvend een offerte aan.</p>
+          </div>
+          <div class="flyers">
+            <div class="flyer"><img src="assets/menu-prijslijst.jpeg" alt="SuriJava Flavours prijslijst"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="gallery">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Sfeer & menu</span>
+          <h2>Een voorproefje van SuriJava Flavours.</h2>
+          <p class="lead">De website kan later eenvoudig worden uitgebreid met professionele foto's van jouw gerechten en evenementen.</p>
+        </div>
+        <div class="gallery-grid">
+          <div class="gallery-card"><img src="assets/braderie-menu-2026.jpeg" alt="SuriJava Flavours menu en braderie"></div>
+          <div class="gallery-card"><img src="assets/menu-prijslijst.jpeg" alt="SuriJava Flavours prijslijst en huisstijl"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="quote" id="offerte">
+      <div class="container quote-grid">
+        <div>
+          <div class="section-head">
+            <span class="eyebrow">Offerte</span>
+            <h2>Vertel ons over jouw feest.</h2>
+          </div>
+          <p class="lead">Vul het formulier in. Je aanvraag wordt via WhatsApp voorbereid, zodat je snel contact met SuriJava Flavours kunt opnemen.</p>
+          <p>Hoe meer informatie je geeft over het aantal gasten, de datum, locatie en gewenste gerechten, hoe beter we met je kunnen meedenken.</p>
+        </div>
+        <div class="quote-box">
+          <form id="quoteForm">
+            <div class="row">
+              <label>Naam<input id="naam" required placeholder="Jouw naam"></label>
+              <label>Telefoonnummer<input id="telefoon" required placeholder="+31 6 ..."></label>
+            </div>
+            <div class="row">
+              <label>Datum evenement<input id="datum" type="date" required></label>
+              <label>Aantal gasten<input id="gasten" type="number" min="1" required placeholder="Bijv. 40"></label>
+            </div>
+            <div class="row">
+              <label>Type evenement
+                <select id="type">
+                  <option>Verjaardag</option><option>Bruiloft</option><option>Babyshower</option>
+                  <option>Bedrijfsfeest</option><option>Evenement</option><option>Familiefeest</option><option>Anders</option>
+                </select>
+              </label>
+              <label>Locatie<input id="locatie" placeholder="Plaats / locatie"></label>
+            </div>
+            <label>Wat wil je graag?
+              <textarea id="wensen" placeholder="Bijv. buffet met bamie, nasie, saoto en snacks + opscheppen op locatie..."></textarea>
+            </label>
+            <button class="btn submit" type="submit">💬 Aanvraag via WhatsApp versturen</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="contact">
+    <div class="footer-grid">
+      <div>
+        <h3>SuriJava Flavours</h3>
+        <p>Surinaamse smaak, Javaanse liefde.</p>
+        <p class="small">Catering • Koken op locatie • Opscheppen & bediening</p>
+      </div>
+      <div>
+        <h3>Contact</h3>
+        <p>📞 <a href="tel:+31626100008">+31 6 26100008</a></p>
+        <p>💬 <a href="https://wa.me/31626100008" target="_blank" rel="noopener">WhatsApp</a></p>
+      </div>
+      <div>
+        <h3>Voor grotere partijen</h3>
+        <p>Voor grotere porties of complete catering kun je rechtstreeks contact opnemen voor een offerte op maat.</p>
+      </div>
+    </div>
+  </footer>
+
+  <a class="whatsapp" href="https://wa.me/31626100008" target="_blank" rel="noopener" aria-label="WhatsApp SuriJava Flavours">☎</a>
+
+  <script>
+    document.getElementById("quoteForm").addEventListener("submit", function(e){
+      e.preventDefault();
+      const naam = document.getElementById("naam").value;
+      const telefoon = document.getElementById("telefoon").value;
+      const datum = document.getElementById("datum").value;
+      const gasten = document.getElementById("gasten").value;
+      const type = document.getElementById("type").value;
+      const locatie = document.getElementById("locatie").value;
+      const wensen = document.getElementById("wensen").value || "Nog geen specifieke wensen opgegeven.";
+      const msg = `Hallo SuriJava Flavours!%0A%0AIk wil graag een cateringofferte aanvragen.%0A%0A*Naam:* ${naam}%0A*Telefoon:* ${telefoon}%0A*Datum:* ${datum}%0A*Aantal gasten:* ${gasten}%0A*Type evenement:* ${type}%0A*Locatie:* ${locatie}%0A*Wensen:* ${wensen}`;
+      window.open(`https://wa.me/31626100008?text=${msg}`, "_blank");
+    });
+  </script>
+</body>
+</html>
